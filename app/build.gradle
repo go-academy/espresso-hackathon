@@ -1,0 +1,46 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    defaultConfig {
+        compileSdk 33
+        applicationId "com.halil.ozel.catchthefruits"
+        minSdkVersion 21
+        targetSdkVersion 33
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures {
+        dataBinding true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlin {
+        jvmToolchain(17)
+    }
+
+    namespace 'com.halil.ozel.catchthefruits'
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "androidx.appcompat:appcompat:$appcompat_version"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintlayout_version"
+    implementation "androidx.gridlayout:gridlayout:$gridlayout_version"
+    implementation "androidx.tracing:tracing:1.1.0"
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.0-alpha01'
+    androidTestImplementation 'androidx.test.ext:junit:1.2.0-alpha01'
+}
